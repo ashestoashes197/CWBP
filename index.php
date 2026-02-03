@@ -44,7 +44,7 @@ Camwhores.tv private video bypass
 <input type="text" name="videoURL" class="form-control" placeholder="Insert video link here" required /><br />
 
 <label class="control-label" for="random">Random public video ddl link</label>
-<p class="example">Example: http://user5.camwhores.tv/remote_control.php?time=1485616108&cv=1e82c13243fcf2bd0bf13c1263ddad77&lr=312500&cv2=9a5c5664d6ad67446840807c17c95ead&file=%2F177000%2F177444%2F177444.mp4&cv3=3a4110051cef9a72797a1ca99a1dce56</p>
+<p class="example">Example: https://video20.woopeedoopcmwhrs.xyz/remote_control.php?time=1770084885&cv=c362778873a0ceb27eafc7991df5b8eb&lr=0&cv2=030513bad166be2daab404cb716561bc&file=%2F16903000%2F16903522%2F16903522.mp4&cv3=15b61f20dc3a5e6c87f81d3ef8135ed1&cv4=2c20b56dd2dacb53a84dc8b4eb5e58f4</p>
 <input type="text" name="random" class="form-control" placeholder="Insert random public video link here" required /><br />
 
 
@@ -91,7 +91,7 @@ if(isset($_POST['sumbitVideoURL'])){
 	$lr = '312500'; // not sure about this, it seems not to change over time
 
 	// The download link generated
-	$link = 'http://' . $user . '.camwhores.tv/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
+	$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
 	$fetch = false;
 	// Showing download link if we have correct parameters
 	if(checkFileValidity(get_string_between('$$' . $link,'$$','&cv3'))){
@@ -106,7 +106,7 @@ if(isset($_POST['sumbitVideoURL'])){
 			$user = "user9";
 		}
 		
-		$link = 'http://' . $user . '.camwhores.tv/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
+		$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
 		$fetch = checkFileValidity(get_string_between('$$' . $link,'$$','&cv3'));
 	}
 
@@ -201,3 +201,4 @@ Nothing is private on the internet
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </div>
 </html>
+
