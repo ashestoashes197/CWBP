@@ -88,13 +88,14 @@ if(isset($_POST['sumbitVideoURL'])){
 	$cv = get_string_between($random,'cv=','&');
 	$cv2 = get_string_between($random,'cv2=','&');
 	$cv3 = get_string_between($random . '/','cv3=','/');
-	$lr = '312500'; // not sure about this, it seems not to change over time
+	$cv4 = get_string_between($random . '/','cv4=','/');
+	$lr = '0'; // not sure about this, it seems not to change over time
 
 	// The download link generated
-	$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
+	$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3 . $cv4;
 	$fetch = false;
 	// Showing download link if we have correct parameters
-	if(checkFileValidity(get_string_between('$$' . $link,'$$','&cv3'))){
+	if(checkFileValidity(get_string_between('$$' . $link,'$$','&cv4'))){
 		$fetch = true;
 	}else{
 
@@ -106,15 +107,15 @@ if(isset($_POST['sumbitVideoURL'])){
 			$user = "user9";
 		}
 		
-		$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3;
-		$fetch = checkFileValidity(get_string_between('$$' . $link,'$$','&cv3'));
+		$link = 'http://' . $user . '.woopeedoopcmwhrs.xyz/remote_control.php?time='. $time . '&cv=' . $cv . '&lr='. $lr .'&cv2=' . $cv2 . '&file=/'. $folderID .'/' . $videoID .'/' . $videoID . '.mp4&cv3=' . $cv3 . '&cv4=' . $cv4;
+		$fetch = checkFileValidity(get_string_between('$$' . $link,'$$','&cv4'));
 	}
 
 
 if($fetch){
 
 echo '<video id="player" width="640" height="480" controls>
-    <source src="'. get_string_between('$$' . $link,'$$','&cv3') .'" type="video/mp4">
+    <source src="'. $link .'" type="video/mp4">
     Your browser does not support the video tag.
 </video>';
 echo '<br /><a href="'. $link . '" download="' . $videoID . '" class="btn btn-success">Download video</a>';
@@ -201,4 +202,5 @@ Nothing is private on the internet
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </div>
 </html>
+
 
